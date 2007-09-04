@@ -5,7 +5,7 @@
 Summary:	Easy access to Braille displays and terminals
 Name:		libbraille
 Version:	0.19.0
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	LGPL
 Group:		System/Libraries
 URL:		http://libbraille.sourceforge.net/
@@ -67,7 +67,6 @@ Summary:	Header files, libraries and development documentation for %{name}
 Group:		Development/C
 Requires:	%{libname} = %{version}
 Provides:	%{name}-devel = %{version}-%{release}
-Obsoletes:	%{name}-devel
 
 %description -n	%{develname}
 This library makes it possible to easily access Braille displays and
