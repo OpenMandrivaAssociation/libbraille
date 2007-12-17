@@ -20,7 +20,6 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
 BuildRequires:	libtool-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-build
 
 %description
 This library makes it possible to easily access Braille displays and
