@@ -5,7 +5,7 @@
 Summary:	Easy access to Braille displays and terminals
 Name:		libbraille
 Version:	0.19.0
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	LGPL
 Group:		System/Libraries
 URL:		http://libbraille.sourceforge.net/
@@ -127,6 +127,7 @@ export LDFLAGS="-Wl,--as-needed"
     --with-pic \
     --disable-rpath \
     --enable-python \
+    --enable-usb
 
 %make
 
@@ -167,3 +168,4 @@ rm -rf %{buildroot}
 %{_libdir}/*.*a
 %{_libdir}/libbraille/*.*a
 %{py_platsitedir}/*.*a
+
