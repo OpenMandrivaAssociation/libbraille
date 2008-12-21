@@ -5,7 +5,7 @@
 Summary:	Easy access to Braille displays and terminals
 Name:		libbraille
 Version:	0.19.0
-Release:	%mkrel 4
+Release:	%mkrel 5
 License:	LGPL
 Group:		System/Libraries
 URL:		http://libbraille.sourceforge.net/
@@ -20,7 +20,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
 BuildRequires:	libtool-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-build
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 This library makes it possible to easily access Braille displays and
@@ -120,8 +120,6 @@ aclocal --force
 autoheader --force
 automake --force --include-deps --add-missing --copy
 autoconf --force
-
-export LDFLAGS="-Wl,--as-needed"
 
 %configure2_5x \
     --with-pic \
