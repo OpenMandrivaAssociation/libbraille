@@ -5,11 +5,11 @@
 Summary:	Easy access to Braille displays and terminals
 Name:		libbraille
 Version:	0.19.0
-Release:	%mkrel 5
+Release:	%mkrel 6
 License:	LGPL
 Group:		System/Libraries
 URL:		http://libbraille.sourceforge.net/
-Source0:	http://prdownloads.sourceforge.net/libbraille/libbraille-%{version}.tar.gz
+Source0:	http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 Patch0:		libbraille-libtool_fixes.diff
 BuildRequires:	python-devel
 BuildRequires:	swig
