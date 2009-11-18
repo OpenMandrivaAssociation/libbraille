@@ -5,12 +5,13 @@
 Summary:	Easy access to Braille displays and terminals
 Name:		libbraille
 Version:	0.19.0
-Release:	%mkrel 8
+Release:	%mkrel 9
 License:	LGPL
 Group:		System/Libraries
 URL:		http://libbraille.sourceforge.net/
 Source0:	http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 Patch0:		libbraille-libtool_fixes.diff
+Patch1:		libbraille-0.19.0-ltdl_fixes.diff
 BuildRequires:	python-devel
 BuildRequires:	swig
 BuildRequires:	glib2-devel
@@ -102,26 +103,19 @@ This package contains Python bindings for libbraille.
 
 %setup -q
 %patch0 -p1
+%patch1 -p0
 
 %build
 %serverbuild
 
 rm -rf libltdl
-libtoolize --force --copy --ltdl
-
-cd libltdl
-aclocal --force
-autoheader --force
-automake --copy
-autoconf --force
-
-cd ..
-aclocal --force
-autoheader --force
-automake --force --include-deps --add-missing --copy
-autoconf --force
+libtoolize --force --copy --install --ltdl
+autoreconf -fi
 
 %configure2_5x \
+    --without-included-ltdl \
+    --with-ltdl-include=%{_includedir} \
+    --with-ltdl-lib=%{_libdir} \
     --with-pic \
     --disable-rpath \
     --enable-python \
