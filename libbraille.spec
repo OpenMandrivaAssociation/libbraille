@@ -5,7 +5,7 @@
 Summary:	Easy access to Braille displays and terminals
 Name:		libbraille
 Version:	0.19.0
-Release:	%mkrel 9
+Release:	%mkrel 10
 License:	LGPL
 Group:		System/Libraries
 URL:		http://libbraille.sourceforge.net/
