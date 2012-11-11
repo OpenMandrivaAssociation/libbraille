@@ -1,0 +1,17 @@
+--- configure.ac	2006-03-04 01:31:27.000000000 +0100
++++ configure.ac.oden	2009-11-18 17:01:07.000000000 +0100
+@@ -46,12 +46,10 @@
+ dnl We need LIBTOOL to use shared libraries
+ AC_EXEEXT
+ AC_LIBTOOL_DLOPEN
+-AC_LIBLTDL_CONVENIENCE
+ AC_PROG_LIBTOOL
+-AC_CONFIG_SUBDIRS(libltdl)
+-AC_SUBST(LTDLINCL)
+-AC_SUBST(LIBLTDL)
+ AC_SUBST(LIBADD_DL)
++LT_CONFIG_LTDL_DIR([libltdl])
++LTDL_INIT([convenience])
+ 
+ dnl Checks for header files.
+ AC_HEADER_STDC

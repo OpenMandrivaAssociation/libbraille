@@ -1,0 +1,228 @@
+diff -Naur libbraille-0.19.0/backend/alva/Makefile.am libbraille-0.19.0.oden/backend/alva/Makefile.am
+--- libbraille-0.19.0/backend/alva/Makefile.am	2006-03-04 01:31:25.000000000 +0100
++++ libbraille-0.19.0.oden/backend/alva/Makefile.am	2007-09-04 18:28:05.000000000 +0200
+@@ -3,9 +3,7 @@
+ alva_la_CFLAGS = $(DEBUG_FLAGS) -I$(top_builddir)/include	\
+ -DBRLDRV_EXPORTS
+ alva_la_SOURCES = brl.c
+-alva_la_LDFLAGS = -no-undefined -module -release $(LT_RELEASE)	\
+--version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE)		\
+--L$(top_builddir)/lib -lbraille
++alva_la_LDFLAGS = -no-undefined -module -avoid-version -L$(top_builddir)/lib -lbraille
+ 
+ EXTRA_DIST = alva.dsp alva.txt
+ MAINTAINERCLEANFILES = Makefile.in
+diff -Naur libbraille-0.19.0/backend/alvausb/Makefile.am libbraille-0.19.0.oden/backend/alvausb/Makefile.am
+--- libbraille-0.19.0/backend/alvausb/Makefile.am	2006-03-04 01:31:25.000000000 +0100
++++ libbraille-0.19.0.oden/backend/alvausb/Makefile.am	2007-09-04 18:28:37.000000000 +0200
+@@ -9,9 +9,7 @@
+ alvausb_la_CFLAGS = $(DEBUG_FLAGS) -I$(top_builddir)/include	\
+ -DBRLDRV_EXPORTS
+ alvausb_la_SOURCES = brl.c
+-alvausb_la_LDFLAGS = -no-undefined -module -release $(LT_RELEASE)	\
+--version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE)			\
+--L$(top_builddir)/lib -lbraille -lusb
++alvausb_la_LDFLAGS = -no-undefined -module -avoid-version -L$(top_builddir)/lib -lbraille -lusb
+ 
+ EXTRA_DIST = alvausb.txt alvausb.dsp
+ MAINTAINERCLEANFILES = Makefile.in
+diff -Naur libbraille-0.19.0/backend/baum/Makefile.am libbraille-0.19.0.oden/backend/baum/Makefile.am
+--- libbraille-0.19.0/backend/baum/Makefile.am	2006-03-04 01:31:25.000000000 +0100
++++ libbraille-0.19.0.oden/backend/baum/Makefile.am	2007-09-04 18:28:49.000000000 +0200
+@@ -9,9 +9,7 @@
+ baum_la_CFLAGS = $(DEBUG_FLAGS) -I$(top_builddir)/include	\
+ -DBRLDRV_EXPORTS
+ baum_la_SOURCES = brl.c
+-baum_la_LDFLAGS = -no-undefined -module -release $(LT_RELEASE)	\
+--version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE)			\
+--L$(top_builddir)/lib -lbraille -lusb
++baum_la_LDFLAGS = -no-undefined -module -avoid-version -L$(top_builddir)/lib -lbraille -lusb
+ 
+ EXTRA_DIST = baum.txt baum.dsp
+ MAINTAINERCLEANFILES = Makefile.in
+diff -Naur libbraille-0.19.0/backend/braillelite/Makefile.am libbraille-0.19.0.oden/backend/braillelite/Makefile.am
+--- libbraille-0.19.0/backend/braillelite/Makefile.am	2006-03-04 01:31:25.000000000 +0100
++++ libbraille-0.19.0.oden/backend/braillelite/Makefile.am	2007-09-04 18:29:00.000000000 +0200
+@@ -3,9 +3,7 @@
+ braillelite_la_CFLAGS = $(DEBUG_FLAGS) -I$(top_builddir)/include	\
+ -DBRLDRV_EXPORTS
+ braillelite_la_SOURCES = brl.c
+-braillelite_la_LDFLAGS = -no-undefined -module -release $(LT_RELEASE)	\
+--version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE)			\
+--L$(top_builddir)/lib -lbraille
++braillelite_la_LDFLAGS = -no-undefined -module -avoid-version -L$(top_builddir)/lib -lbraille
+ 
+ EXTRA_DIST = braillelite.txt braillelite.dsp
+ MAINTAINERCLEANFILES = Makefile.in
+\ No newline at end of file
+diff -Naur libbraille-0.19.0/backend/braillenote/Makefile.am libbraille-0.19.0.oden/backend/braillenote/Makefile.am
+--- libbraille-0.19.0/backend/braillenote/Makefile.am	2006-03-04 01:31:26.000000000 +0100
++++ libbraille-0.19.0.oden/backend/braillenote/Makefile.am	2007-09-04 18:29:11.000000000 +0200
+@@ -3,9 +3,7 @@
+ braillenote_la_CFLAGS = $(DEBUG_FLAGS) -I$(top_builddir)/include	\
+ -DBRLDRV_EXPORTS
+ braillenote_la_SOURCES = brl.c
+-braillenote_la_LDFLAGS = -no-undefined -module -release $(LT_RELEASE)	\
+--version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE)			\
+--L$(top_builddir)/lib -lbraille
++braillenote_la_LDFLAGS = -no-undefined -module -avoid-version -L$(top_builddir)/lib -lbraille
+ 
+ EXTRA_DIST = braillenote.txt braillenote.dsp
+ MAINTAINERCLEANFILES = Makefile.in
+diff -Naur libbraille-0.19.0/backend/eurobraille/Makefile.am libbraille-0.19.0.oden/backend/eurobraille/Makefile.am
+--- libbraille-0.19.0/backend/eurobraille/Makefile.am	2006-03-04 01:31:26.000000000 +0100
++++ libbraille-0.19.0.oden/backend/eurobraille/Makefile.am	2007-09-04 18:29:20.000000000 +0200
+@@ -3,9 +3,7 @@
+ eurobraille_la_CFLAGS = $(DEBUG_FLAGS) -I$(top_builddir)/include	\
+ -DBRLDRV_EXPORTS
+ eurobraille_la_SOURCES = brl.c
+-eurobraille_la_LDFLAGS = -no-undefined -module -release $(LT_RELEASE)	\
+--version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE)			\
+--L$(top_builddir)/lib -lbraille
++eurobraille_la_LDFLAGS = -no-undefined -module -avoid-version -L$(top_builddir)/lib -lbraille
+ 
+ EXTRA_DIST = eurobraille.dsp eurobraille.txt
+ MAINTAINERCLEANFILES = Makefile.in
+\ No newline at end of file
+diff -Naur libbraille-0.19.0/backend/fakegtk/Makefile.am libbraille-0.19.0.oden/backend/fakegtk/Makefile.am
+--- libbraille-0.19.0/backend/fakegtk/Makefile.am	2006-03-04 01:31:26.000000000 +0100
++++ libbraille-0.19.0.oden/backend/fakegtk/Makefile.am	2007-09-04 18:29:32.000000000 +0200
+@@ -11,9 +11,7 @@
+ -DBRLDRV_EXPORTS
+ fake_la_SOURCES = brl.c
+ fake_la_LIBADD = $(GTK_LIBS) $(GLIB_LIBS)
+-fake_la_LDFLAGS = -no-undefined -module -release $(LT_RELEASE)	\
+--version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE)			\
+--L$(top_builddir)/lib -lbraille
++fake_la_LDFLAGS = -no-undefined -module -avoid-version -L$(top_builddir)/lib -lbraille
+ 
+ pkgdata_DATA = blank.png dots_b.png dots_w.png
+ EXTRA_DIST = blank.png dots_b.png dots_w.png
+diff -Naur libbraille-0.19.0/backend/handytech/Makefile.am libbraille-0.19.0.oden/backend/handytech/Makefile.am
+--- libbraille-0.19.0/backend/handytech/Makefile.am	2006-03-04 01:31:26.000000000 +0100
++++ libbraille-0.19.0.oden/backend/handytech/Makefile.am	2007-09-04 18:30:12.000000000 +0200
+@@ -3,8 +3,7 @@
+ handytech_la_CFLAGS = $(DEBUG_FLAGS) -I$(top_builddir)/include	\
+ -DBRLDRV_EXPORTS
+ handytech_la_SOURCES = brl.c
+-handytech_la_LDFLAGS = -module -release $(LT_RELEASE) -version-info	\
+-$(LT_CURRENT):$(LT_REVISION):$(LT_AGE) -L$(top_builddir)/lib -lbraille
++handytech_la_LDFLAGS = -module -avoid-version -L$(top_builddir)/lib -lbraille
+ 
+ EXTRA_DIST = handytech.dsp handytech.txt
+ MAINTAINERCLEANFILES = Makefile.in
+diff -Naur libbraille-0.19.0/backend/none/Makefile.am libbraille-0.19.0.oden/backend/none/Makefile.am
+--- libbraille-0.19.0/backend/none/Makefile.am	2006-03-04 01:31:25.000000000 +0100
++++ libbraille-0.19.0.oden/backend/none/Makefile.am	2007-09-04 18:30:25.000000000 +0200
+@@ -3,9 +3,7 @@
+ none_la_CFLAGS = $(DEBUG_FLAGS) -I$(top_builddir)/include	\
+ -DBRLDRV_EXPORTS
+ none_la_SOURCES = brl.c
+-none_la_LDFLAGS = -no-undefined -module -release $(LT_RELEASE)	\
+--version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE)			\
+--L$(top_builddir)/lib -lbraille
++none_la_LDFLAGS = -no-undefined -module -avoid-version -L$(top_builddir)/lib -lbraille
+ 
+ EXTRA_DIST = none.dsp none.txt
+ MAINTAINERCLEANFILES = Makefile.in
+\ No newline at end of file
+diff -Naur libbraille-0.19.0/backend/once/Makefile.am libbraille-0.19.0.oden/backend/once/Makefile.am
+--- libbraille-0.19.0/backend/once/Makefile.am	2006-03-04 01:31:25.000000000 +0100
++++ libbraille-0.19.0.oden/backend/once/Makefile.am	2007-09-04 18:30:34.000000000 +0200
+@@ -3,9 +3,7 @@
+ once_la_CFLAGS = $(DEBUG_FLAGS) -I$(top_builddir)/include	\
+ -DBRLDRV_EXPORTS
+ once_la_SOURCES = brl.c
+-once_la_LDFLAGS = -no-undefined -module -release $(LT_RELEASE)	\
+--version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE)		\
+--L$(top_builddir)/lib -lbraille
++once_la_LDFLAGS = -no-undefined -module -avoid-version -L$(top_builddir)/lib -lbraille
+ 
+ EXTRA_DIST = once.dsp once.txt
+ MAINTAINERCLEANFILES = Makefile.in
+\ No newline at end of file
+diff -Naur libbraille-0.19.0/backend/papenmeierusb/Makefile.am libbraille-0.19.0.oden/backend/papenmeierusb/Makefile.am
+--- libbraille-0.19.0/backend/papenmeierusb/Makefile.am	2006-03-04 01:31:25.000000000 +0100
++++ libbraille-0.19.0.oden/backend/papenmeierusb/Makefile.am	2007-09-04 18:30:47.000000000 +0200
+@@ -9,9 +9,7 @@
+ papenmeierusb_la_CFLAGS = $(DEBUG_FLAGS) -I$(top_builddir)/include	\
+ -DBRLDRV_EXPORTS
+ papenmeierusb_la_SOURCES = brl.c
+-papenmeierusb_la_LDFLAGS = -no-undefined -module -release $(LT_RELEASE)	\
+--version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE)			\
+--L$(top_builddir)/lib -lbraille -lusb
++papenmeierusb_la_LDFLAGS = -no-undefined -module -avoid-version -L$(top_builddir)/lib -lbraille -lusb
+ 
+ EXTRA_DIST = papenmeierusb.txt papenmeierusb.dsp
+ MAINTAINERCLEANFILES = Makefile.in
+diff -Naur libbraille-0.19.0/backend/technibraille/Makefile.am libbraille-0.19.0.oden/backend/technibraille/Makefile.am
+--- libbraille-0.19.0/backend/technibraille/Makefile.am	2006-03-04 01:31:26.000000000 +0100
++++ libbraille-0.19.0.oden/backend/technibraille/Makefile.am	2007-09-04 18:30:57.000000000 +0200
+@@ -3,9 +3,7 @@
+ technibraille_la_CFLAGS = $(DEBUG_FLAGS) -I$(top_builddir)/include	\
+ -DBRLDRV_EXPORTS
+ technibraille_la_SOURCES = brl.c
+-technibraille_la_LDFLAGS = -no-undefined -module -release		\
+-$(LT_RELEASE) -version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE)	\
+--L$(top_builddir)/lib -lbraille
++technibraille_la_LDFLAGS = -no-undefined -module -avoid-version -L$(top_builddir)/lib -lbraille
+ 
+ EXTRA_DIST = technibraille.dsp technibraille.txt
+ MAINTAINERCLEANFILES = Makefile.in
+\ No newline at end of file
+diff -Naur libbraille-0.19.0/backend/text/Makefile.am libbraille-0.19.0.oden/backend/text/Makefile.am
+--- libbraille-0.19.0/backend/text/Makefile.am	2006-03-04 01:31:25.000000000 +0100
++++ libbraille-0.19.0.oden/backend/text/Makefile.am	2007-09-04 18:31:07.000000000 +0200
+@@ -3,9 +3,7 @@
+ text_la_CFLAGS = $(DEBUG_FLAGS) -I$(top_builddir)/include	\
+ -DBRLDRV_EXPORTS
+ text_la_SOURCES = brl.c
+-text_la_LDFLAGS = -no-undefined -module -release $(LT_RELEASE)	\
+--version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE)		\
+--L$(top_builddir)/lib -lbraille
++text_la_LDFLAGS = -no-undefined -module -avoid-version -L$(top_builddir)/lib -lbraille
+ 
+ EXTRA_DIST = text.dsp
+ MAINTAINERCLEANFILES = Makefile.in
+diff -Naur libbraille-0.19.0/backend/voyager/Makefile.am libbraille-0.19.0.oden/backend/voyager/Makefile.am
+--- libbraille-0.19.0/backend/voyager/Makefile.am	2006-03-04 01:31:26.000000000 +0100
++++ libbraille-0.19.0.oden/backend/voyager/Makefile.am	2007-09-04 18:31:20.000000000 +0200
+@@ -9,9 +9,7 @@
+ voyager_la_CFLAGS = $(DEBUG_FLAGS) -I$(top_builddir)/include	\
+ -DBRLDRV_EXPORTS
+ voyager_la_SOURCES = brl.c
+-voyager_la_LDFLAGS = -no-undefined -module -release $(LT_RELEASE)	\
+--version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE)			\
+--L$(top_builddir)/lib -lbraille -lusb
++voyager_la_LDFLAGS = -no-undefined -module -avoid-version -L$(top_builddir)/lib -lbraille -lusb
+ 
+ EXTRA_DIST = voyager.txt voyager.dsp
+ MAINTAINERCLEANFILES = Makefile.in
+diff -Naur libbraille-0.19.0/lib/Makefile.am libbraille-0.19.0.oden/lib/Makefile.am
+--- libbraille-0.19.0/lib/Makefile.am	2006-03-04 01:31:26.000000000 +0100
++++ libbraille-0.19.0.oden/lib/Makefile.am	2007-09-04 18:25:07.000000000 +0200
+@@ -14,9 +14,8 @@
+ '-DPREFIX="$(prefix)"' $(USB_FLAGS) -DLIBBRAILLE_EXPORTS
+ libbraille_la_SOURCES = braille.c error.c config.c $(EXTRASOURCES)
+ libbraille_la_LIBADD = $(LIBLTDL) $(LIBADD_DL)
+-libbraille_la_LDFLAGS = -no-undefined -release $(LT_RELEASE)		\
+--version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE) $(DLL_LDFLAGS)	\
+-$(USB_LIB)
++libbraille_la_LDFLAGS = -no-undefined -version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE) \
++$(DLL_LDFLAGS) $(USB_LIB)
+ 
+ EXTRA_DIST = dllentry.c libbraille.dsp serial_win32.c config_win32.c	\
+ serial_tios.c config_posix.c
+\ No newline at end of file
+diff -Naur libbraille-0.19.0/python/Makefile.am libbraille-0.19.0.oden/python/Makefile.am
+--- libbraille-0.19.0/python/Makefile.am	2006-03-04 01:31:24.000000000 +0100
++++ libbraille-0.19.0.oden/python/Makefile.am	2007-09-04 18:26:52.000000000 +0200
+@@ -6,7 +6,7 @@
+ '-DPKGLIBDIR="$(pkglibdir)"'
+ nodist__braille_la_SOURCES = braille_wrap.c
+ _braille_la_LIBADD = -L$(top_srcdir)/lib -lbraille
+-_braille_la_LDFLAGS = -module
++_braille_la_LDFLAGS = -module -avoid-version
+ 
+ BUILT_SOURCES = braille_wrap.c braille.py
+ EXTRA_DIST = braille.i Python.dsp
