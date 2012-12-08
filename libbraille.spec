@@ -5,7 +5,7 @@
 Summary:	Easy access to Braille displays and terminals
 Name:		libbraille
 Version:	0.19.0
-Release:	11
+Release:	%mkrel 12
 License:	LGPL
 Group:		System/Libraries
 URL:		http://libbraille.sourceforge.net/
@@ -21,6 +21,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
 BuildRequires:	libtool-devel
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 This library makes it possible to easily access Braille displays and
@@ -123,14 +124,26 @@ autoreconf -fi
 %make
 
 %install
+rm -rf %{buildroot}
 
 %makeinstall_std
 
-rm -f %{buildroot}%{_libdir}/*.*a
-rm -f %{buildroot}%{_libdir}/libbraille/*.*a
-rm -f %{buildroot}%{py_platsitedir}/*.*a
+# antibork
+find %{buildroot}%{_libdir} -name "*.la" | xargs perl -pi -e "s|\ -L%{_builddir}/%{name}-%{version}/lib||g"
+
+%if %mdkversion < 200900
+%post -n %{libname} -p /sbin/ldconfig
+%endif
+
+%if %mdkversion < 200900
+%postun	-n %{libname} -p /sbin/ldconfig
+%endif
+
+%clean
+rm -rf %{buildroot}
 
 %files -n %{libname}
+%defattr(-,root,root,0755)
 %doc AUTHORS COPYING ChangeLog README TODO
 %config(noreplace) %{_sysconfdir}/libbraille.conf
 %{_bindir}/*
@@ -140,9 +153,71 @@ rm -f %{buildroot}%{py_platsitedir}/*.*a
 %{_datadir}/libbraille
 
 %files -n python-braille
+%defattr(-,root,root)
 %{py_sitedir}/*.py*
 %{py_platsitedir}/*.so
 
 %files -n %{develname}
+%defattr(-,root,root,0755)
 %{_includedir}/*.h
 %{_libdir}/*.so
+%{_libdir}/*.*a
+%{_libdir}/libbraille/*.*a
+%{py_platsitedir}/*.*a
+
+
+
+%changelog
+* Fri Apr 29 2011 Oden Eriksson <oeriksson@mandriva.com> 0.19.0-10mdv2011.0
++ Revision: 660220
+- mass rebuild
+
+* Wed Nov 18 2009 Oden Eriksson <oeriksson@mandriva.com> 0.19.0-9mdv2011.0
++ Revision: 467253
+- link against system libltdl.so.7
+
+* Mon Sep 14 2009 Götz Waschk <waschk@mandriva.org> 0.19.0-8mdv2010.0
++ Revision: 439788
+- rebuild for new libusb
+
+* Wed Sep 02 2009 Christophe Fergeau <cfergeau@mandriva.com> 0.19.0-7mdv2010.0
++ Revision: 425520
+- rebuild
+
+* Thu Dec 25 2008 Adam Williamson <awilliamson@mandriva.org> 0.19.0-6mdv2009.1
++ Revision: 319057
+- rebuild for python 2.6
+
+* Sun Dec 21 2008 Oden Eriksson <oeriksson@mandriva.com> 0.19.0-5mdv2009.1
++ Revision: 316999
+- really use %%ldflags
+
+* Tue Jun 17 2008 Thierry Vignaud <tv@mandriva.org> 0.19.0-4mdv2009.0
++ Revision: 222508
+- rebuild
+
+  + Pixel <pixel@mandriva.com>
+    - do not call ldconfig in %%post/%%postun, it is now handled by filetriggers
+
+* Mon Mar 10 2008 Antoine Ginies <aginies@mandriva.com> 0.19.0-3mdv2008.1
++ Revision: 183934
+- rebuild for 2008 spring
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill re-definition of %%buildroot on Pixel's request
+
+* Tue Sep 04 2007 Oden Eriksson <oeriksson@mandriva.com> 0.19.0-2mdv2008.0
++ Revision: 79448
+- fix deps
+
+* Tue Sep 04 2007 Oden Eriksson <oeriksson@mandriva.com> 0.19.0-1mdv2008.0
++ Revision: 79399
+- Import libbraille
+
+
+
+* Tue Sep 04 2007 Oden Eriksson <oeriksson@mandriva.com> 0.19.0-1mdv2008.0
+- initial Mandriva package (opensuse import)
