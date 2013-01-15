@@ -12,6 +12,7 @@ URL:		http://libbraille.sourceforge.net/
 Source0:	http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 Patch0:		libbraille-libtool_fixes.diff
 Patch1:		libbraille-0.19.0-ltdl_fixes.diff
+Patch2:		libbraille-automake-1.13.patch
 BuildRequires:	python-devel
 BuildRequires:	swig
 BuildRequires:	glib2-devel
@@ -21,7 +22,6 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
 BuildRequires:	libtool-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 This library makes it possible to easily access Braille displays and
@@ -104,6 +104,7 @@ This package contains Python bindings for libbraille.
 %setup -q
 %patch0 -p1
 %patch1 -p0
+%patch2 -p1 -b .am113~
 
 %build
 %serverbuild

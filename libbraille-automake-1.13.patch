@@ -1,0 +1,11 @@
+--- libbraille-0.19.0/configure.ac.bero	2013-01-15 23:19:16.023718361 +0100
++++ libbraille-0.19.0/configure.ac	2013-01-15 23:19:26.620590266 +0100
+@@ -33,7 +33,7 @@ AC_SUBST(LT_REVISION)
+ AC_SUBST(LT_AGE)    
+ 
+ dnl generate config.h
+-AM_CONFIG_HEADER(config.h)
++AC_CONFIG_HEADERS([config.h])
+ 
+ # We now have a list of macros which tell autoconf what tools we need to
+ # build our software, in this case "make", a C compiler, and "install".
