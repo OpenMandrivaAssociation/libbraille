@@ -21,7 +21,7 @@ BuildRequires:	pkgconfig(python)
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(gtk+-2.0)
 BuildRequires:	pkgconfig(libusb)
-Conflicts:	%{_lib}braille14 < 0.19.0-14
+Conflicts:	%{_lib}braille14 < 0.19.0-13
 
 %description
 This library makes it possible to easily access Braille displays and
