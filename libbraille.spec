@@ -77,12 +77,12 @@ autoreconf -fi
 
 %build
 %serverbuild
-%configure2_5x \
+export PYTHON=%__python2
+%configure \
 	--without-included-ltdl \
 	--with-ltdl-include=%{_includedir} \
 	--with-ltdl-lib=%{_libdir} \
 	--with-pic \
-	--disable-static \
 	--enable-python \
 	--enable-usb
 
@@ -103,8 +103,8 @@ autoreconf -fi
 %{_libdir}/libbraille.so.%{major}*
 
 %files -n python-braille
-%{py_sitedir}/*.py*
-%{py_platsitedir}/*.so
+%{py2_puresitedir}/*.py*
+%{py2_platsitedir}/*.so
 
 %files -n %{devname}
 %{_includedir}/*.h
