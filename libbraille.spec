@@ -2,6 +2,9 @@
 %define	libname	%mklibname braille %{major}
 %define devname	%mklibname braille -d
 
+%define _disable_lto 1
+%define _disable_rebuild_configure 1
+
 Summary:	Easy access to Braille displays and terminals
 Name:		libbraille
 Version:	0.19.0
