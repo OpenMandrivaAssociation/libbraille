@@ -72,7 +72,7 @@ This package contains Python bindings for libbraille.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 
 rm -rf libltdl
 libtoolize --force --copy --install --ltdl
