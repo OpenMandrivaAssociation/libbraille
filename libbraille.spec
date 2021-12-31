@@ -24,6 +24,7 @@ BuildRequires:	pkgconfig(python)
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(gtk+-2.0)
 BuildRequires:	pkgconfig(libusb)
+BuildRequires:	pkgconfig(python-3.9)
 Conflicts:	%{_lib}braille14 < 0.19.0-13
 
 %description
@@ -87,6 +88,7 @@ export PYTHON=%__python2
 	--with-ltdl-lib=%{_libdir} \
 	--with-pic \
 	--enable-python \
+	--with-pythoninc=/usr/include/python3.9 \
 	--enable-usb
 
 %make
