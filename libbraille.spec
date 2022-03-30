@@ -1,5 +1,5 @@
-%define	major	14
-%define	libname	%mklibname braille %{major}
+%define major 14
+%define libname	%mklibname braille %{major}
 %define devname	%mklibname braille -d
 
 %define _disable_lto 1
@@ -8,7 +8,7 @@
 Summary:	Easy access to Braille displays and terminals
 Name:		libbraille
 Version:	0.19.0
-Release:	25
+Release:	26
 License:	LGPLv2
 Group:		System/Libraries
 Url:		http://libbraille.org/
@@ -24,12 +24,11 @@ BuildRequires:	pkgconfig(python)
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(gtk+-2.0)
 BuildRequires:	pkgconfig(libusb)
-BuildRequires:	pkgconfig(python-3.9)
 Conflicts:	%{_lib}braille14 < 0.19.0-13
 
 %description
 This library makes it possible to easily access Braille displays and
-terminals :	you can write text on the braille display, directly draw braille
+terminals : you can write text on the braille display, directly draw braille
 dots, or get the value of pressed keys. It is compatible with a wide range
 of braille displays.
 
@@ -45,14 +44,14 @@ The features contain:
 * uses autoconf, automake and libtool for easier installation and portability
 * contains a virtual graphical terminal made with Gtk+ for developers testing
 
-%package -n	%{libname}
+%package -n %{libname}
 Summary:	Shared libbraille library
 Group:		System/Libraries
 
-%description -n	%{libname}
+%description -n %{libname}
 This package contains a shared library for %{name}.
 
-%package -n	%{devname}
+%package -n %{devname}
 Summary:	Header files, libraries and development documentation for %{name}
 Group:		Development/C
 Requires:	%{libname} = %{version}
@@ -63,7 +62,7 @@ This package contains the header files, static libraries and development
 documentation for %{name}. If you like to develop programs using %{name},
 you will need to install %{name}-devel.
 
-%package -n	python-braille
+%package -n python-braille
 Summary:	Python bindings for libbraille
 Group:		Development/Python
 Requires:	%{libname} = %{version}
@@ -81,7 +80,7 @@ autoreconf -fi
 
 %build
 %serverbuild
-export PYTHON=%__python2
+
 %configure \
 	--without-included-ltdl \
 	--with-ltdl-include=%{_includedir} \
@@ -108,10 +107,9 @@ export PYTHON=%__python2
 %{_libdir}/libbraille.so.%{major}*
 
 %files -n python-braille
-%{py2_puresitedir}/*.py*
-%{py2_platsitedir}/*.so
+%{py_puresitedir}/*.py*
+%{py_platsitedir}/*.so
 
 %files -n %{devname}
 %{_includedir}/*.h
 %{_libdir}/*.so
-
