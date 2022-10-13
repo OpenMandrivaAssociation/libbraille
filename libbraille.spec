@@ -87,7 +87,7 @@ autoreconf -fi
 	--with-ltdl-lib=%{_libdir} \
 	--with-pic \
 	--enable-python \
-	--with-pythoninc=/usr/include/python3.9 \
+	--with-pythoninc=/usr/include/python3.11 \
 	--enable-usb
 
 %make
