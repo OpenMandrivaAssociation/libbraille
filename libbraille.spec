@@ -109,6 +109,7 @@ autoreconf -fi
 %files -n python-braille
 %{py_puresitedir}/*.py*
 %{py_platsitedir}/*.so
+%{python_sitelib}/__pycache__/braille.cpython*
 
 %files -n %{devname}
 %{_includedir}/*.h
