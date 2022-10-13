@@ -87,7 +87,7 @@ autoreconf -fi
 	--with-ltdl-lib=%{_libdir} \
 	--with-pic \
 	--enable-python \
-	--with-pythoninc=/usr/include/python3.9 \
+	--with-pythoninc=/usr/include/python3.11 \
 	--enable-usb
 
 %make
@@ -109,6 +109,7 @@ autoreconf -fi
 %files -n python-braille
 %{py_puresitedir}/*.py*
 %{py_platsitedir}/*.so
+%{python_sitelib}/__pycache__/braille.cpython*
 
 %files -n %{devname}
 %{_includedir}/*.h
