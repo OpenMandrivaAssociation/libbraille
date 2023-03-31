@@ -8,7 +8,7 @@
 Summary:	Easy access to Braille displays and terminals
 Name:		libbraille
 Version:	0.19.0
-Release:	26
+Release:	27
 License:	LGPLv2
 Group:		System/Libraries
 Url:		http://libbraille.org/
