@@ -11,7 +11,7 @@ Version:	0.19.0
 Release:	27
 License:	LGPLv2
 Group:		System/Libraries
-Url:		http://libbraille.org/
+Url:		https://libbraille.org/
 Source0:	http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 Patch0:		libbraille-libtool_fixes.diff
 Patch1:		libbraille-0.19.0-ltdl_fixes.diff
