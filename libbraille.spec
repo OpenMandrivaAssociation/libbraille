@@ -17,6 +17,11 @@ Patch0:		libbraille-libtool_fixes.diff
 Patch1:		libbraille-0.19.0-ltdl_fixes.diff
 Patch2:		libbraille-automake-1.13.patch
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	libtool
 BuildRequires:	swig
 BuildRequires:	libtool-devel
